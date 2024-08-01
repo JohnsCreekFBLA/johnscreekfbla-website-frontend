@@ -344,7 +344,7 @@ if (Astro.request.method === "POST"){
             // console.log("Download Request Received");
             try{
                 const response = await fetch(`${backendURL}`, { 
-                    method: 'GET',
+                    method: 'POST',
                     headers: {
                     'Content-Type': 'application/json'
                     }
@@ -353,6 +353,7 @@ if (Astro.request.method === "POST"){
                 if (!response.ok){
                     throw new Error('Network response was not ok');
                 }
+
                 // Parse excel blob into local user download
                 const blob = await response.blob();
                 const tempURL = window.URL.createObjectURL(blob);
