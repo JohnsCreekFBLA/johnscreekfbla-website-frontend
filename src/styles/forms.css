@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* For forms page */
 
 #leadFormHeader{
@@ -111,36 +110,3 @@ input[type=tel]
 #attendanceFormWrapper{
     display: none;
 }
-=======
-iframe {
-    position: relative;
-    width: 80%;
-    margin-top: clamp(10px, 5%, 30px);
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-@media only screen and (max-width: 550px) {
-    iframe {
-        width: 100%;
-    }
-}
-
-
-@media only screen and (min-height: 800px) {
-    iframe {
-        height: 700px;
-    }
-}
-
-@media only screen and (max-height: 670px) {
-    iframe {
-        height: 450px;
-    }
-}
-
-@media only screen and (max-height: 600px) {
-    iframe {
-        height: 400px;
-    }
-}
->>>>>>> 6a9fe3e508ad09beb6725f14bb1b15d8174bc1fb

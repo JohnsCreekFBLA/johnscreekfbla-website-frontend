@@ -39,13 +39,9 @@ export default function TransparentNavbar({type}) {
             <div className="dropdown forms-dropdown">
               <div className={linkType}>FORMS AND PAYMENTS<span className={arrowType}><svg width="9" height="9" viewBox="0 0 15 15"><path d="M2.1,3.2l5.4,5.4l5.4-5.4L15,4.3l-7.5,7.5L0,4.3L2.1,3.2z"></path></svg></span></div>
               <div className="dropdown-content forms-content">
-<<<<<<< HEAD
                 {/* <a href="https://docs.google.com/forms/d/e/1FAIpQLScHbekKoom_uwuXCQjSWaICnuRaZujZtcrN0vf3-CENKqpgCA/viewform?usp=sf_link" target="_blank" >Membership Form</a> */}
                 <a href="/forms/">All Forms</a>
                 
-=======
-                <a href="/forms/membership">Membership Form</a>
->>>>>>> 6a9fe3e508ad09beb6725f14bb1b15d8174bc1fb
                 <a>Membership Dues</a>
               </div>
             </div>
@@ -73,7 +69,7 @@ export default function TransparentNavbar({type}) {
               <div className={linkType}>RESOURCES<span className={arrowType}><svg width="9" height="9" viewBox="0 0 15 15"><path d="M2.1,3.2l5.4,5.4l5.4-5.4L15,4.3l-7.5,7.5L0,4.3L2.1,3.2z"></path></svg></span></div>
               <div className="dropdown-content-left resources-content">
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8SWxbsyupSNok39rN83_1bkM4hsD1aaPl_wpzYrsGCeWaRQ/viewform">Competitive Events Workshop</a>
-                <a href="https://georgiafbla.org/high-school-competitive-events/">Competitive Events Guidelines</a>
+                <a href="https://www.canva.com/design/DAFsY555qhU/76yqBg0QfPmV92CxIkkW2g/edit?utm_content=DAFsY555qhU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Competitive Events Guidelines</a>
               </div>
             </div>
 
@@ -104,13 +100,8 @@ export default function TransparentNavbar({type}) {
             <IoClose />
           </div>
           <div className="menu-link" onClick={() => {toggleSelection(1)}}>FORMS AND PAYMENTS<span className="menu-down-arrow"><svg width="14" height="14" viewBox="0 0 15 15"><path d="M2.1,3.2l5.4,5.4l5.4-5.4L15,4.3l-7.5,7.5L0,4.3L2.1,3.2z"></path></svg></span></div>
-<<<<<<< HEAD
           <div className="menu-link-dropdown" style={{display: (selectedType === 1) ? "flex" : "none"}}>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLScHbekKoom_uwuXCQjSWaICnuRaZujZtcrN0vf3-CENKqpgCA/viewform?usp=sf_link" target="_blank" >Membership Form</a>
-=======
-          <div className="menu-link-dropdown" style={{display: (selectedType == 1) ? "flex" : "none"}}>
-            <a href="/forms/membership">Membership Form</a>
->>>>>>> 6a9fe3e508ad09beb6725f14bb1b15d8174bc1fb
             <a>Membership Dues</a>
           </div>
           <div className="menu-link" onClick={() => {toggleSelection(2)}}>EVENTS<span className="menu-down-arrow"><svg width="14" height="14" viewBox="0 0 15 15"><path d="M2.1,3.2l5.4,5.4l5.4-5.4L15,4.3l-7.5,7.5L0,4.3L2.1,3.2z"></path></svg></span></div>
