@@ -345,7 +345,7 @@ if (Astro.request.method === "POST"){
             try{
                 alert("Started");
                 const response = await fetch(`${backendURL}`, { 
-                    method: 'POST',
+                    method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'
                     }
