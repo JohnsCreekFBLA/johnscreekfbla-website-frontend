@@ -350,7 +350,7 @@ if (Astro.request.method === "POST"){
                         'Content-Type': 'application/json'
                     }
                 });
-
+                alert("Response Exists");
                 if (!response.ok){
                     alert("Error");
                     throw new Error('Network response was not ok');
@@ -358,11 +358,13 @@ if (Astro.request.method === "POST"){
 
                 // Parse excel blob into local user download
                 const blob = await response.blob();
+                alert("Response Exists 1");
                 const tempURL = window.URL.createObjectURL(blob);
                 const tempLink = document.createElement('a');
                 tempLink.style.display = 'none';
                 tempLink.href = tempURL;
                 tempLink.download = 'students.xlsx';
+                alert("Response Exists 2");
                 document.body.appendChild(tempLink);
                 tempLink.click();
                 window.URL.revokeObjectURL(tempURL);
