@@ -343,6 +343,7 @@ if (Astro.request.method === "POST"){
             // event.preventDefault();
             // console.log("Download Request Received");
             try{
+                alert("Started");
                 const response = await fetch(`${backendURL}`, { 
                     method: 'POST',
                     headers: {
@@ -351,6 +352,7 @@ if (Astro.request.method === "POST"){
                 });
 
                 if (!response.ok){
+                    alert("Error");
                     throw new Error('Network response was not ok');
                 }
 
