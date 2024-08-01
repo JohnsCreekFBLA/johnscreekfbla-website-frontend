@@ -370,6 +370,7 @@ if (Astro.request.method === "POST"){
                 window.URL.revokeObjectURL(tempURL);
                 alert("Downloaded");
             } catch (error) {
+                alert(error);
                 console.log(error);
             }
         }
