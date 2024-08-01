@@ -1,0 +1,146 @@
+<<<<<<< HEAD
+/* For forms page */
+
+#leadFormHeader{
+    position: relative;
+    top: 20px;
+}
+
+#selectFormHeader{
+    position: relative;
+    top: 10px;
+}
+
+.formInputClass{
+    position: relative;
+    display: block;
+    font-size: 24px;
+    padding: 10px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.formInputPair{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    gap: 10px;
+    width: 70%;
+    left: 15%;
+
+}
+
+/* Validation */
+.formLink{
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+.formLink:hover{
+    color: #333333;
+}
+
+.formLink:visited{
+    color: lightblue;
+}
+
+input[type=text]
+{
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #bf0d3e;
+    width: 70%; 
+    left: 15%; 
+    position: relative;
+}
+
+input[type=email]
+{
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #bf0d3e;
+    width: 70%; 
+    left: 15%; 
+    position: relative;
+}
+
+input[type=tel]
+{
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #bf0d3e;
+    width: 70%; 
+    left: 15%; 
+    position: relative;
+}
+
+/* Selectors */
+.generalSelector{
+    font-size: 17px;
+    padding: 8px;
+    width: 50%;
+    left: 25%;
+    position: relative;
+    border-radius: 10px;
+}
+
+.submitButton{
+    font-size: 24px;
+    padding: 8px;
+    border-radius: 10px;
+    background: #d3d3d3;
+    color: black;
+}
+
+.submitButton:disabled{
+    background: #7575756d;
+    color: darkgray;
+}
+
+/* General Blocks */
+#membershipFormWrapper{
+    display: block;
+}
+
+#attendanceFormWrapper{
+    display: none;
+}
+=======
+iframe {
+    position: relative;
+    width: 80%;
+    margin-top: clamp(10px, 5%, 30px);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+@media only screen and (max-width: 550px) {
+    iframe {
+        width: 100%;
+    }
+}
+
+
+@media only screen and (min-height: 800px) {
+    iframe {
+        height: 700px;
+    }
+}
+
+@media only screen and (max-height: 670px) {
+    iframe {
+        height: 450px;
+    }
+}
+
+@media only screen and (max-height: 600px) {
+    iframe {
+        height: 400px;
+    }
+}
+>>>>>>> 6a9fe3e508ad09beb6725f14bb1b15d8174bc1fb

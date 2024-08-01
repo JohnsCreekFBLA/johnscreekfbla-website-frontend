@@ -1,0 +1,509 @@
+---
+import Navbar from '../../components/Navbar.jsx'
+import '../../styles/global.css'
+import '../../styles/events.css'
+import '../../styles/forms.css'
+
+// Event Listeners
+async function handleFormSubmission() {
+    // event.preventDefault();
+
+    try {
+        const data = await Astro.request.formData();
+        // const data = new FormData(event.target);
+        // // Membership Form
+        // const firstName = data.get("firstName");
+        // const lastName = data.get("lastName");
+        // const preferredName = data.get("preferredName");
+        // const emailStudent = data.get("emailStudent");
+        // const phoneNumberStudent = data.get("phoneNumberStudent");
+        // const gender = data.get("gender");
+        // const grade = data.get("grade");
+        // const returning = data.get("returning");
+        // const recruiter = data.get("recruiter");
+        // const tshirt = data.get("tshirt");
+        // const parentEmail = data.get("parentEmail");
+        // const parentPhone = data.get("parentPhone");
+        // const street = data.get("street");
+        // const city = data.get("city");
+        // const zipCode = data.get("zipCode");
+        // const ospNumber = data.get("ospNumber");
+
+        const formData = {
+            idStudent: data.get("idStudent"),
+            firstName: data.get("firstName"),
+            lastName: data.get("lastName"),
+            preferredName: data.get("preferredName"),
+            emailStudent: data.get("emailStudent"),
+            phoneNumberStudent: data.get("phoneNumberStudent"),
+            gender: data.get("gender"),
+            grade: data.get("grade"),
+            returning: data.get("returning"),
+            recruiter: data.get("recruiter"),
+            tshirt: data.get("tshirt"),
+            parentEmail: data.get("parentEmail"),
+            parentPhone: data.get("parentPhone"),
+            street: data.get("street"),
+            city: data.get("city"),
+            zipCode: data.get("zipCode"),
+            ospNumber: data.get("ospNumber")
+        };
+
+        // Debugging
+        // console.log("First Name:" + firstName);
+        // console.log("Last Name: " + lastName);
+        // console.log("Email: " + emailStudent);
+        // console.log("Phone: " + phoneNumberStudent);
+        // console.log(formData);
+        const backLink = "https://johnscreekfbla-website-backend.vercel.app/api/create-membership";
+        const response = await fetch(backLink, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        console.log(result);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// Form Submission (Temp)
+if (Astro.request.method === "POST"){
+    console.log("POST Request Received");
+    let response = await handleFormSubmission();
+    // console.log("Response: " + response);
+}
+
+---
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JCHS FBLA</title>
+</head>
+
+<body>
+    <div class="header-container">
+        <Navbar type="flat" client*load />
+    </div>
+    
+    <div>
+        <div class="event-title">
+            Forms and Payment
+        </div>
+        <div class="divider-row">
+            <hr class="title-divider"/>
+        </div>
+    </div>
+
+    <!-- Description Header -->
+    <div id = "leadFormHeader" class = "info-container">
+        <h1 class="info-title">Forms</h1>
+        <div class="info-list">
+            <p class="info-description">
+            Choose a form to fill out from the selector below. If you have any questions, please contact an officer or advisor. If filling out a form for a competitive event, please make sure to have filled out your membership form; otherwise, you will not be able to submit!
+            </p>
+        </div>
+    </div>
+
+    <!-- Form Selection  -->
+    <div id = "selectFormHeader" class = "info-container">
+        <div class = "info-list">
+            <label for="formSelector">Select Form:</label>
+            <select name="formSelector" id="formSelector" class = "generalSelector">
+                <optgroup label="Membership">
+                    <option value="membershipForm">Membership Form</option>
+                    <option value="meetingFormAugust">Meeting Form 8/</option>
+                </optgroup>
+                <optgroup label="Competitions">
+                    <option value="rallyRegistration" disabled="true">Fall Rally @ Six Flags</option>
+                    <option value="flcRegistration" disabled="true">Fall Leadership Conference - FLC</option>
+                    <option value="rlcRegistration" disabled="true">Regional Leadership Conference - RLC</option>
+                    <option value="slcRegistration" disabled="true">State Leadership Conference - SLC</option>
+                    <option value="nlcRegistration" disabled="true">National Leadership Conference - NLC</option>
+                </optgroup>
+                <optgroup label="Community Service">
+                    <option value="commEventSeptember" disabled>September - Can Bowl</option>
+                    <option value="commEventNovember" disabled>November - Can Drive</option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+
+    <!-- Membership Form -->
+    <div id = "membershipFormWrapper" class = "info-container">
+        <div class = "info-list">
+            <form id = "membershipForm" name = "membershipForm" class = "standard-form" method = "POST" onsubmit = "handleFormSubmission">
+                <!-- User Instructions -->
+                <p class="info-description">
+                    Currently Filling Out: Membership Form
+                </p>
+                <p class="info-description">
+                    <b><i>* - Starred fields are required.</i></b>
+                </p>
+                <div class = "formInputClass">
+                    <p class="info-description">
+                        Please fill out the OSP Confirmation Number by paying using the link below. It should look like 1113121-xxxxxxx. You must click and pay before submitting!<br/>
+                        Payment Link:
+                        <a class = "formLink" href="https://osp.osmsinc.com/JohnsCreekHS/BVModules/ProductTemplates/Bvc2013/Product.aspx?productid=CV001-1" ><u>Here</u></a>
+                        <!-- Add an onclick event here -->
+                    </p>
+                    <div class = "formInputPair">
+                        <label for="ospNumber">OSP Confirmation Number*</label>
+                        <input type="text" id="ospNumberMembership" name="ospNumber" style="width: 50%; left: 25%; position: relative;" pattern="1113121-[0-9]{7}" required>
+                    </div>
+                </div>
+
+                <!-- Personal Information -->
+                <div class = "formInputClass">
+                    <p class="info-description">
+                        Please fill out the following information about yourself.
+                    </p>
+                    <div class = "formInputPair">
+                        <label for="firstName">First Name*</label>
+                        <input type="text" id="firstNameMembership" name="firstName" required>
+                    </div>
+                    <div class = "formInputPair">
+                        <label for="lastName">Last Name*</label>
+                        <input type="text" id="lastNameMembership" name="lastName" required>
+                    </div>
+                    <div class = "formInputPair">
+                        <label for="preferredName">Preferred Name*</label>
+                        <input type="text" id="preferredNameMembership" name="preferredName" required>
+                    </div>
+                    <div class = "formInputPair">
+                        <label for="emailStudent">Email*</label>
+                        <input type="email" id="emailStudentMembership" name="emailStudent" required>
+                    </div>
+                    <div class = "formInputPair">
+                        <label for="phoneNumberStudent">Phone Number* (e.g. 999-999-9999)</label>
+                        <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phoneNumberStudentMembership" name="phoneNumberStudent" required>
+                    </div>
+                    <div class = "formInputPair">
+                        <label for="gender">Gender*</label>
+                        <select id = "genderMembership" name = "gender" class = "generalSelector" required>
+                            <option value = "male">Male</option>
+                            <option value = "female">Female</option>
+                        </select>
+                    </div>
+                    <div class = "formInputPair">
+                        <label for="grade">Grade*</label>
+                        <select id = "gradeMembership" name = "grade" class = "generalSelector" required>
+                            <option value = "9">9th</option>
+                            <option value = "10">10th</option>
+                            <option value = "11">11th</option>
+                            <option value = "12">12th</option>
+                        </select>
+                    </div>
+                    <div class = "formInputPair">
+                        <label for="returning">Returning Member?*</label>
+                        <select id = "returningMembership" name = "returning" class = "generalSelector" required>
+                            <option value = "yesReturn">No</option>
+                            <option value = "noReturn">Yes</option>
+                        </select>
+                    </div>
+                    <div class = "formInputPair">
+                        <label for="recruiter">Name of Recruiter (if applicable)</label>
+                        <input type="text" id="recruiterMembership" name="recruiter">
+                    </div>
+                    <div class = "formInputPair">
+                        <label for="tshirt">T-Shirt Size*</label>
+                        <select id = "tShirtMembership:" name = "tshirt" class = "generalSelector" required>
+                            <option value = "small">S</option>
+                            <option value = "medium" selected>M</option>
+                            <option value = "large">L</option>
+                            <option value = "xLarge">XL</option>
+                            <option value = "2xLarge">2XL</option>
+                            <option value = "3xLarge">3XL</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Parents -->
+                <div class = "formInputClass">
+                    <p class="info-description">
+                        Please fill out the following information about a parent/guardian.
+                    </p>
+                    <div class = "formInputPair">
+                        <label for="parentEmail">Email*</label>
+                        <input type="email" id="parentEmailMembership" name="parentEmail" required>
+                    </div>
+                    <div class = "formInputPair">
+                        <label for="parentPhone">Phone Number* (e.g. 999-999-9999)</label>
+                        <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="parentPhoneMembership" name="parentPhone" required>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class = "formInputClass">
+                    <p class="info-description">
+                        Please fill out the following information about your home address.
+                    </p>
+                    <div class = "formInputPair">
+                        <label for="parentEmail">Street*</label>
+                        <input type="text" id="parentEmailMembership" name="parentEmail" required>
+                    </div>
+                    <div class = "formInputPair">
+                        <label for="parentPhone">City*</label>
+                        <input type="text" id="parentPhoneMembership" name="parentPhone" required>
+                    </div>
+                    <div class = "formInputPair">
+                        <label for="parentPhone">Zip Code*</label>
+                        <input type="text" id="parentPhoneMembership" name="parentPhone" required>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class = "formInputClass">
+                    <input  id = "membershipFormSubmit" class = "submitButton" type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Attendance Form -->
+    <div id = "attendanceFormWrapper" class = "info-container" >
+        <div class = "info-list">
+            <form id = "attendanceForm" name = "attendanceForm" class = "standard-form" method = "POST">
+                <!-- User Instructions -->
+                <p class="info-description">
+                    Currently Filling Out: Membership Form
+                </p>
+                <p class="info-description">
+                    <b><i>* - Starred fields are required.</i></b>
+                </p>
+
+                <!-- Personal Information -->
+                <div class = "formInputClass">
+                    <p class="info-description">
+                        Please fill out the following information about yourself.
+                    </p>
+                    <div class = "formInputPair">
+                        <label for="firstName">First Name*</label>
+                        <input type="text" id="firstNameMembership" name="firstName" required>
+                    </div>
+                    <div class = "formInputPair">
+                        <label for="lastName">Last Name*</label>
+                        <input type="text" id="lastNameMembership" name="lastName" required>
+                    </div>
+                    <div class = "formInputPair">
+                        <label for="emailStudent">Email*</label>
+                        <input type="email" id="emailStudentMembership" name="emailStudent" required>
+                    </div>
+                    <div class = "formInputPair">
+                        <label for="phoneNumberStudent">Phone Number* (e.g. 999-999-9999)</label>
+                        <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phoneNumberStudentMembership" name="phoneNumberStudent" required>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class = "formInputClass">
+                    <input  id = "membershipFormSubmit" class = "submitButton" type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Front End DOM -->
+    <script type="text/javascript">
+        // Prevent form resubmission
+        if (window.history.replaceState){
+            window.history.replaceState(null, null, window.location.href);
+        }
+
+        // Change forms
+        const selectForm = document.getElementById("formSelector");
+        selectForm.addEventListener("change", function() {
+            const currentForm = selectForm.options[selectForm.selectedIndex].value;
+            const membershipFormWrapper = document.getElementById("membershipFormWrapper");
+            const attendanceFormWrapper = document.getElementById("attendanceFormWrapper");
+            if (currentForm === "membershipForm") {
+                membershipFormWrapper.style.display = "block";
+                attendanceFormWrapper.style.display = "none";
+            } else {
+                membershipFormWrapper.style.display = "none";
+                attendanceFormWrapper.style.display = "block";
+            }
+        });
+        // Display Default
+        selectForm.selectedIndex = 1;
+        membershipFormWrapper.style.display = "none"; 
+        attendanceFormWrapper.style.display = "block";
+        
+        // Download Excel File
+        // const backendURL = "http://localhost:3000"; // Local URL
+        const backendURL = "https://johnscreekfbla-website-backend.vercel.app/api/read-membership"; // Vercel URL
+
+        async function handleDownload(event) {
+            // event.preventDefault();
+            // console.log("Download Request Received");
+            try{
+                const response = await fetch(`${backendURL}`, { 
+                    method: 'GET',
+                    headers: {
+                    'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok){
+                    throw new Error('Network response was not ok');
+                }
+                // Parse excel blob into local user download
+                const blob = await response.blob();
+                const tempURL = window.URL.createObjectURL(blob);
+                const tempLink = document.createElement('a');
+                tempLink.style.display = 'none';
+                tempLink.href = tempURL;
+                tempLink.download = 'students.xlsx';
+                document.body.appendChild(tempLink);
+                tempLink.click();
+                window.URL.revokeObjectURL(tempURL);
+                alert("Downloaded");
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+
+    </script>
+
+    <!-- Download Form -->
+    <div id = "getInfoFormWrapper" class = "info-container" >
+        <p class="info-description">
+            For officers: Get the xlsx for the form here.
+        </p>
+        <!-- Submit -->
+        <div class = "formInputClass">
+            <input id = "getInformationMembership" onclick = "handleDownload()" class = "submitButton" type="submit" value="Download">
+        </div>
+    </div> 
+
+<!-- Fields to collect
+
+Membership:
+    - OSP Confirmation Number
+    - First Name
+    - Last Name
+    - Preferred Name
+    - Email
+    - Phone Number
+    - Gender
+    - Grade
+    - Returning Member?
+    - Recruiter
+    - T-Shirt Size
+    - Parent Email
+    - Parent Phone
+    - Street
+    - City
+    - Zip Code
+
+    - Paid
+
+National Database:
+    - SchoolRecordNumber
+    - SchoolName
+    - StudentRelationsihp
+    - SchoolRelationship
+    - isRelationshipPrimary
+    - isEmailPrimary
+    - AddressLine2: Empty
+    - AddressCountry: Empty
+    - OFficerPosition: Empty
+    - Tshirt ????
+
+ NLC:
+    - Event
+    - Deposit
+    - Final 
+    - Forms 
+    - Allergies
+
+ Membership Points:
+    - Points
+    - Proof
+    - Level
+
+ Rally/RLC/FLC/SLC:
+    - Event 1/2
+    - Paid
+    - Attendance Status
+
+ Comm Service:
+
+
+
+Final Database:
+
+Identification: 13 Fields
+    - First Name
+    - Last Name
+    - Preferred Name
+    - Email
+    - Phone Number
+    - Gender
+    - Grade
+    - Parent Email
+    - Parent Phone
+    - Street
+    - City
+    - Zip Code
+
+Misc: 3 Fields
+    - Returning Member? 
+    - Recruiter
+    - T-Shirt Size
+
+Competitions: 25 Fields
+    - FLC Event 1/2 + Types
+    - RLC Event 1/2 + Types
+    - SLC Event 1/2 + Types
+    - NLC Event + Type
+    
+    - Rally Paid/Forms
+    - FLC Paid/Forms
+    - RLC Paid/Forms
+    - SLC Paid/Forms
+    - NLC Paid/Forms
+    - NLC Deposit
+
+Community Service: ???? - 21 Fields minimum
+    - September Service - Amount, Proof Link
+    - October Service
+    - November Service
+    - January Service
+    - February Service
+    - March Service
+    - April Service
+
+Meetings/Officers: 8 Fields
+    - Meeting Attendance: 7 Fields
+    - Officer Position
+
+
+Final Database Design:
+Identification + Misc: 13 Fields
+
+
+Fall Rally: Identification + 3 Field
+FLC: Identification + 3 Field
+RLC: Identification + 3 Field
+SLC: Identification + 3 Field
+NLC: Identification + 3 Field
+
+Important Identification: First/Last Name + Email + Phone + their own fields
+
+
+
+-->
+
+
+</body>
+</html>
+
+    

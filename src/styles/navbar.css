@@ -1,0 +1,297 @@
+.transparent-navbar-container {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 120px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 75px;
+    padding-right: 75px;
+    display: flex;
+    justify-content: center;
+    z-index: 999;
+}
+
+.flat-navbar-container {
+    height: 120px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 75px;
+    padding-right: 75px;
+    background: white;
+    position: relative;
+    top: 0px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.navbar-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1500px;
+}
+
+.navbar-logo {
+    height: 90%;
+    width: 260px;
+    object-fit: cover;
+}
+
+.link-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 6px;
+    height: 100%;
+}
+
+.link {
+    font-family: "Roboto";
+    font-weight: 600;
+    color: #fafafa;
+    font-size: 18px;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.link-black {
+    font-family: "Roboto";
+    font-weight: 600;
+    color: #333333;
+    font-size: 18px;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.down-arrow {
+    margin-left: 8px;
+    fill: #ffffff;
+}
+
+.down-arrow-black {
+    margin-left: 8px;
+    fill: #333333;
+}
+
+.dropdown-content {
+    visibility: hidden;
+    margin-top: -5px;
+    background-color: #f9f9f9;
+    position: absolute;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 12px;
+    border-radius: 5px;
+    padding-right: 12px;
+    font-family: "Roboto";
+    display: flex;
+    gap: 14px;
+    flex-direction: column;
+}
+
+.dropdown-content a {
+    font-family: "Roboto";
+    font-size: 14px;
+    text-decoration: none;
+    color: #333333;
+
+}
+
+.dropdown-content-left {
+    visibility: hidden;
+    margin-top: -5px;
+    background-color: #f9f9f9;
+    position: absolute;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 12px;
+    border-radius: 5px;
+    padding-right: 12px;
+    font-family: "Roboto";
+    display: flex;
+    gap: 14px;
+    flex-direction: column;
+    margin-left: -135px;
+}
+
+.dropdown-content-left a {
+    font-family: "Roboto";
+    font-size: 14px;
+    text-decoration: none;
+    color: #333333;
+
+}
+
+
+.forms-dropdown:hover .forms-content {
+    visibility: visible;
+}
+.events-dropdown:hover .events-content {
+    visibility: visible;
+}
+
+.about-dropdown:hover .about-content {
+    visibility: visible;
+}
+
+.resources-dropdown:hover .resources-content {
+    visibility: visible;
+}
+
+.link-hamburger-button-container {
+    margin-top: 6px;
+    display: none;
+    align-items: center;
+    visibility: visible;
+}
+
+.link-hamburger-button {
+    padding: 0;
+    background: transparent;
+    border: none;
+    font-size: 34px;
+    color: white;
+}
+
+.link-hamburger-button-black {
+    padding: 0;
+    background: transparent;
+    border: none;
+    font-size: 34px;
+    color: #333333;
+}
+
+.instagram-link {
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-top: 4px;
+}
+
+.instagram-icon {
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.instagram-icon-black {
+    color: #333333;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.dead-zone {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.link-menu-background {
+    position: fixed;  
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.244);
+    z-index: 99999;
+}
+
+.link-menu-container {
+    position: absolute;
+    right: 0;
+    background: white;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 90px;
+    padding-left: 30px;
+    min-width: min(500px, 100%);
+}
+
+.menu-link {
+    font-family: "Roboto";
+    font-weight: 600;
+    color: #333333;
+    font-size: 24px;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    height: fit-content;
+}
+
+.menu-down-arrow {
+    margin-left: 8px;
+    fill: #333333;
+}
+
+.menu-link-dropdown {
+    font-size: 20px;
+    color: #333333;
+    font-family: "Roboto";
+    margin-top: -8px;
+    margin-bottom: -5px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-link-dropdown a {
+    font-family: "Roboto";
+    font-size: 18px;
+    text-decoration: none;
+    color: #333333;
+}
+
+.menu-close {
+    position: absolute;
+    top: 35px;
+    right: 30px;
+    font-size: 24px;
+    color: #333333;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1090px) {
+    .link-hamburger-button-container {
+        display: flex;
+    }
+
+    .link-container {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .navbar-logo {
+        width: 200px;
+        height: 70%;
+    }
+
+    .transparent-navbar-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .flat-navbar-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
