@@ -39,10 +39,11 @@ All commands are run from the root of the project, from a terminal:
 
 ## Extra Dependences
 1. express
-2. sqlite3
-3. astro:db (npx add astro:db)
-4. cors
-5. xlsx
+2. cors
+3. xlsx
+4. astro
+5. typescript
+
 
 
 
