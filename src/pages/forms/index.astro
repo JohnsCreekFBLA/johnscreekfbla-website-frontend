@@ -56,8 +56,9 @@ async function handleFormSubmission() {
         // console.log("Phone: " + phoneNumberStudent);
         // console.log(formData);
 
-        const response = await fetch('http://localhost:3000/updateMembership', {
-            method: 'POST',
+        const backendURL = "https://johnscreekfbla-website-backend.vercel.app/api/create-membership"; // Vercel URL
+        const response = await fetch(backendURL, {
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -337,12 +338,12 @@ if (Astro.request.method === "POST"){
         
         // Download Excel File
         // const backendURL = "http://localhost:3000"; // Local URL
-        const backendURL = "/databaseAPI"; // Vercel URL
+        const backendURL = "https://johnscreekfbla-website-backend.vercel.app/api/read-membership"; // Vercel URL
         async function handleDownload(event) {
             // event.preventDefault();
             // console.log("Download Request Received");
             try{
-                const response = await fetch(`${backendURL}/downloadExcel`, { 
+                const response = await fetch(`${backendURL}`, { 
                     method: 'GET',
                     headers: {
                     'Content-Type': 'application/json'
