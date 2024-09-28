@@ -40,6 +40,7 @@ async function handleFormSubmission() {
         // console.log("Phone: " + phoneNumberStudent);
         // console.log(formData);
 
+        // Post request to backend, returns an xlsx that is downloaded to the user
         const backendURL = "https://johnscreekfbla-website-backend.vercel.app/api/create-membership"; // Vercel URL
         const response = await fetch(backendURL, {
             method: 'POST',
@@ -57,7 +58,7 @@ async function handleFormSubmission() {
     }
 }
 
-// Form Submission (Temp)
+// Form Submission
 if (Astro.request.method === "POST"){
     console.log("POST Request Received");
     let response = await handleFormSubmission();
@@ -325,7 +326,7 @@ if (Astro.request.method === "POST"){
         // const backendURL = "http://localhost:3000/api/read-membership"; // Local URL
         const backendURL = "https://johnscreekfbla-website-backend.vercel.app/api/read-membership"; // Vercel URL
         async function handleDownload(event) {
-            // event.preventDefault();
+            // event.preventDefault(); // No longer necessary
             // console.log("Download Request Received");
             try{
                 // alert("Process Started");
